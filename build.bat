@@ -1,0 +1,1 @@
+copy /Y "D:\Documents\PermissionGuard\build\libs\PermissionGuard-1.0-beta.jar" "D:\Documents\.purpurServer\plugins"

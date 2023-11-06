@@ -1,0 +1,8 @@
+name: PermissionGuard
+version: '${version}'
+main: dev.dinofeng.permissionguard.PermissionGuard
+api-version: '1.20'
+commands:
+  verify:
+    description: Command for console to verify someone
+    usage: /<command>
