@@ -17,6 +17,7 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "17"
+          cache: "gradle"
 
       - name: Build Plugin
         run: chmod +x ./gradlew && ./gradlew build 
