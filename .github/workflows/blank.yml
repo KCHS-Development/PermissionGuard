@@ -1,0 +1,33 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Java setup
+        uses: actions/setup-java@v2
+        with:
+          distribution: "temurin"
+          java-version: "17"
+          cache: "gradle"
+      - uses: actions/checkout@v3
+
+      - name: Build Plugin
+        run: chmod +x ./gradlew && ./gradlew build 
+
+      - name: Rename build artifacts
+        run: mv build/libs/PermissionGuard-*.jar build/libs/PermissionGuard-build.jar
+        
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: PermissionGuard
+          path: build/libs/PermissionGuard-build.jar
